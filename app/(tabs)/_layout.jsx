@@ -7,7 +7,7 @@ const TabIcon = ({ icon, color, name, focused }) => {
   return (
     <View className="items-center gap-2 justify-center">
       <Image source={icon} resizeMode="contain" tintColor={color} className="w-6 h-6" />
-      <Text className={focused ? 'font-pSemibold text-xs' : 'font-pRegular text-xs'} style={{ color: color }}>
+      <Text className={`text-xs block text-center  ${focused ? 'font-pSemibold ' : 'font-pRegular'}`} style={{ color: color }}>
         {name}
       </Text>
     </View>

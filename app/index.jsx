@@ -1,15 +1,17 @@
 import { Link, router } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import { Image, SafeAreaView, ScrollView, Text, View } from 'react-native';
+import { Image, ScrollView, Text, View } from 'react-native';
 import { images } from '../constants';
 import CustomButton from '../components/CustomButton';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import Logo from '../components/Logo';
 
 export default function App() {
   return (
     <SafeAreaView className="bg-primary h-full">
       <ScrollView contentContainerStyle={{ height: '100%' }}>
-        <View className="px-4 w-full min-h-[85vh] items-center justify-center">
-          <Image className="max-w-[130px] w-full h-14" resizeMode="contain" source={images.logo} />
+        <View className="px-4 w-full min-h-full items-center justify-center flex-1">
+          <Logo />
           <Image source={images.cards} className="max-w-sm w-full h-80" resizeMode="contain" />
           <View className="relative mt-5">
             <Text className="text-white text-3xl text-center font-bold">

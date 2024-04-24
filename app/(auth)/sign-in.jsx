@@ -5,6 +5,7 @@ import Logo from "../../components/Logo";
 
 import FormInput from "../../components/FormInput";
 import CustomButton from "../../components/CustomButton";
+import { Link } from "expo-router";
 
 const SignIn = () => {
   const [form, setForm] = useState({
@@ -40,6 +41,12 @@ const SignIn = () => {
             handlePress={submit}
             isLoading={isSubmitting}
           />
+          <View className="justify-center flex-row gap-2 pt-5">
+            <Text className="text-lg font-pRegular text-gray-100">Don't have account?</Text>
+            <Link href={"/sign-up"} className="text-lg font-pRegular text-secondary">
+              Sign Up
+            </Link>
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>

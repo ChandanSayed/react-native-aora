@@ -1,11 +1,11 @@
-import { View, Text, ScrollView } from "react-native";
+import { View, Text, ScrollView, Alert } from "react-native";
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Logo from "../../components/Logo";
 
 import FormInput from "../../components/FormInput";
 import CustomButton from "../../components/CustomButton";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 import { register } from "../../lib/appwrite";
 
 const SignUp = () => {
@@ -16,14 +16,27 @@ const SignUp = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  function submit() {
-    register();
+  async function submit() {
+    const { username, email, password } = form;
+    if (!username || !password || !email) {
+      Alert.alert("Please fill in all the forms!");
+    }
+    setIsSubmitting(true);
+    try {
+      const res = await register(email, password, username);
+      router.replace("/home");
+      console.log(res);
+    } catch (error) {
+      Alert.alert(error.message);
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
     <SafeAreaView className="bg-primary h-full">
       <ScrollView contentContainerStyle={{ height: "100%" }}>
-        <View className="justify-center h-full px-4 w-full my-6 flex-1">
+        <View className="justify-center min-h-[85vh] px-4 w-full my-6">
           <Logo />
           <Text className="text-white text-3xl font-pSemibold mt-10">Sign Up</Text>
           <FormInput

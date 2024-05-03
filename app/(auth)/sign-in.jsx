@@ -23,7 +23,7 @@ const SignIn = () => {
     setIsSubmitting(true);
     try {
       const res = await signIn(email, password);
-      console.log(res);
+
       router.replace("/home");
     } catch (error) {
       Alert.alert(error.message);

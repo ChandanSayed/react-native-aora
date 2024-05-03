@@ -25,7 +25,6 @@ const SignUp = () => {
     try {
       const res = await register(email, password, username);
       router.replace("/home");
-      console.log(res);
     } catch (error) {
       Alert.alert(error.message);
     } finally {

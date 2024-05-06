@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, Alert, KeyboardAvoidingView } from "react-native";
+import { View, Text, ScrollView, Alert, KeyboardAvoidingView, Platform } from "react-native";
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Logo from "../../components/Logo";
@@ -35,8 +35,11 @@ const SignIn = () => {
   return (
     <SafeAreaView className="bg-primary h-full">
       <ScrollView contentContainerStyle={{ height: "100%" }}>
-        <KeyboardAvoidingView behavior="position">
-          <View className="justify-center min-h-[84vh] px-4 w-full my-6">
+        <KeyboardAvoidingView
+          behavior={Platform.OS === "ios" ? "padding" : "height"}
+          className="h-full"
+        >
+          <View className="justify-center h-full flex-1 px-4 w-full my-6">
             <Logo />
             <Text className="text-white text-3xl font-pSemibold mt-10">Sign In</Text>
             <FormInput

@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, Alert } from "react-native";
+import { View, Text, ScrollView, Alert, KeyboardAvoidingView } from "react-native";
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Logo from "../../components/Logo";
@@ -35,35 +35,37 @@ const SignIn = () => {
   return (
     <SafeAreaView className="bg-primary h-full">
       <ScrollView contentContainerStyle={{ height: "100%" }}>
-        <View className="justify-center h-full px-4 w-full my-6 flex-1">
-          <Logo />
-          <Text className="text-white text-3xl font-pSemibold mt-10">Sign In</Text>
-          <FormInput
-            handleChangeText={e => setForm({ ...form, email: e })}
-            title={"Email"}
-            keyboardType="email-address"
-            otherStyles={"mt-7"}
-            placeholder={"Email"}
-          />
-          <FormInput
-            handleChangeText={e => setForm({ ...form, password: e })}
-            title={"Password"}
-            otherStyles={"mt-7"}
-            placeholder={"Password"}
-          />
-          <CustomButton
-            title="Sign In"
-            containerStyle="w-full mt-7"
-            handlePress={submit}
-            isLoading={isSubmitting}
-          />
-          <View className="justify-center flex-row gap-2 pt-5">
-            <Text className="text-lg font-pRegular text-gray-100">Don't have account?</Text>
-            <Link href={"/sign-up"} className="text-lg font-pRegular text-secondary">
-              Sign Up
-            </Link>
+        <KeyboardAvoidingView behavior="position">
+          <View className="justify-center min-h-[84vh] px-4 w-full my-6">
+            <Logo />
+            <Text className="text-white text-3xl font-pSemibold mt-10">Sign In</Text>
+            <FormInput
+              handleChangeText={e => setForm({ ...form, email: e })}
+              title={"Email"}
+              keyboardType="email-address"
+              otherStyles={"mt-7"}
+              placeholder={"Email"}
+            />
+            <FormInput
+              handleChangeText={e => setForm({ ...form, password: e })}
+              title={"Password"}
+              otherStyles={"mt-7"}
+              placeholder={"Password"}
+            />
+            <CustomButton
+              title="Sign In"
+              containerStyle="w-full mt-7"
+              handlePress={submit}
+              isLoading={isSubmitting}
+            />
+            <View className="justify-center flex-row gap-2 pt-5">
+              <Text className="text-lg font-pRegular text-gray-100">Don't have account?</Text>
+              <Link href={"/sign-up"} className="text-lg font-pRegular text-secondary">
+                Sign Up
+              </Link>
+            </View>
           </View>
-        </View>
+        </KeyboardAvoidingView>
       </ScrollView>
     </SafeAreaView>
   );

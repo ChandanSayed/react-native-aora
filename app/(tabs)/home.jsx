@@ -8,8 +8,8 @@ import SearchInput from "../../components/SearchInput";
 import Trending from "../../components/Trending";
 import EmptyState from "../../components/EmptyState";
 import { getAllPosts, getLatestPosts } from "../../lib/appwrite";
-import useAppWrite from "../../lib/useAppWrite";
 import VideoCard from "../../components/VideoCard";
+import useAppWrite from "../../lib/useAppwrite";
 
 const Home = () => {
   const { user } = useGlobalContext();

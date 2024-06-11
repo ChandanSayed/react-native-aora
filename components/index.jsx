@@ -1,10 +1,10 @@
 import VideoCard from "./VideoCard";
-import FormField from "./FormField";
+import FormInput from "./FormInput";
 import CustomButton from "./CustomButton";
 import InfoBox from "./InfoBox";
-import Loader from "./Loader";
 import Trending from "./Trending";
 import SearchInput from "./SearchInput";
 import EmptyState from "./EmptyState";
+import Logo from "./Logo";
 
-export { VideoCard, FormField, CustomButton, InfoBox, Loader, Trending, SearchInput, EmptyState };
+export { VideoCard, CustomButton, InfoBox, Trending, SearchInput, EmptyState, FormInput, Logo };

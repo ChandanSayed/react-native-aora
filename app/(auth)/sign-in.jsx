@@ -1,10 +1,8 @@
 import { View, Text, ScrollView, Alert, KeyboardAvoidingView, Platform } from "react-native";
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import Logo from "../../components/Logo";
 
-import FormInput from "../../components/FormInput";
-import CustomButton from "../../components/CustomButton";
+import { FormInput, CustomButton, Logo } from "../../components";
 import { Link, router } from "expo-router";
 import { signIn } from "../../lib/appwrite";
 

@@ -9,7 +9,7 @@ import Trending from "../../components/Trending";
 import EmptyState from "../../components/EmptyState";
 import { getAllPosts, getLatestPosts } from "../../lib/appwrite";
 import VideoCard from "../../components/VideoCard";
-import useAppWrite from "../../lib/useAppwrite";
+import useAppWrite from "../../lib/useAppWrite";
 
 const Home = () => {
   const { user } = useGlobalContext();
